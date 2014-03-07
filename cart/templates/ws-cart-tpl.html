@@ -1,0 +1,134 @@
+<div>
+<div id="nodata">{MSG_CART_EMPTY}</div>
+
+<!-- START BLOCK : TAG_CART_ZONE -->
+<form  name="myform" action="?func=c_finish" method="post">
+<table width="90%" border="0" cellpadding="0" cellspacing="0" align="center" class="inquiry_table"> 
+<tr>
+    <th width="5%"> No.</th>
+    <th width="10%"> {MSG_PRODUCT_IMAGE}</th>
+    <th width="30%"> {MSG_PRODUCT}</th>
+    <th width="10%"> {MSG_AMOUNT}</th>
+    <!-- START BLOCK : TAG_PRICE_TH -->
+    <th width="20%"> {MSG_PRODUCT_SPECIAL_PRICE}{VALUE_P_DISCOUNT}</th>
+    <th width="15%"> {MSG_SUBTOTAL}</th>
+    <!-- END BLOCK : TAG_PRICE_TH -->
+    <th width="10%"> {MSG_DEL}</th>
+</tr>
+<!-- START BLOCK : TAG_CART_LIST -->
+<tr>
+    <td class="no">{VALUE_P_SERIAL}</td>
+    <td><center><a href="{VALUE_P_SMALL_IMG}" rel="lightbox"><img src="{VALUE_P_SMALL_IMG}" width="60" alt="{VALUE_P_NAME}" border="0"/></a></center></td>
+    <td class="title"><a href="{VALUE_P_LINK}" target="_blank">{VALUE_P_NAME}</a></td>
+    <td>
+    	<select class="c_num" name="shop_value|{VALUE_P_SESS}">
+    		<!-- START BLOCK : TAG_CART_NUM -->
+    		<option value="{VALUE_CART_NUM}" {VALUE_CART_CURRENT}>{VALUE_CART_NUM}</option>
+    		<!-- END BLOCK : TAG_CART_NUM -->
+    	</select>
+    </td>
+    <!-- START BLOCK : TAG_PRICE_TD -->
+    <td>{VALUE_P_SPECIAL_PRICE}</td>
+    <td>{VALUE_P_SUBTOTAL_PRICE}</td>
+    <!-- END BLOCK : TAG_PRICE_TD -->
+    <td>
+        <a href="#"><input name="c_del" type="button" value="" style="cursor: pointer; border: 0; padding: 0; width: 20px; height: 20px; background: url({TAG_THEME_PATH}ws-table-delete.gif);" rel="{VALUE_P_SESS}"></a>
+    </td>
+</tr>
+<!-- END BLOCK : TAG_CART_LIST -->
+
+<!-- START BLOCK : TAG_PLUS_FEE -->
+<tr>
+    <td colspan="4">
+        <div align="right"> {MSG_PLUS_FEE}:&nbsp;</div>
+    </td>
+    <td colspan="3"> {VALUE_PLUS_FEE}</td>
+</tr>
+<!-- END BLOCK : TAG_PLUS_FEE -->
+
+<!-- START BLOCK : TAG_PRICE_TOTAL -->
+<tr>
+    <td colspan="4">
+        <div align="right"> {MSG_SHIPPING_PRICE}:&nbsp;</div>
+    </td>
+    <td colspan="3"> {VALUE_SHIPPING_PRICE}</td>
+</tr> 
+<tr>
+    <th colspan="4">
+        <div align="right"> {MSG_TOTAL}:&nbsp;</div>
+    </th>
+    <th colspan="3"> {VALUE_TOTAL}</th>
+</tr>
+<!-- END BLOCK : TAG_PRICE_TOTAL -->
+</table>
+
+
+<table width="90%" border="0" cellpadding="0" cellspacing="0" align="center" class="inquiry_table"> 
+<!-- START BLOCK : PAYMENT_TYPE -->
+<tr>
+    <th width="20%">{MSG_PAYMENT_TYPE}</th>
+    <td>
+    	<!-- START BLOCK : PAYMENT_TYPE_ITEMS -->
+    	<p><input type="radio" name="o_payment_type" value="{VALUE_PAYMENT_TYPE}" {VALUE_PAYMENT_CURRENT}>{VALUE_PAYMENT_TYPE}</p>
+        <!-- END BLOCK : PAYMENT_TYPE_ITEMS -->
+	</td>
+</tr>
+<!-- END BLOCK : PAYMENT_TYPE -->
+<tr>
+    <td colspan="2" style="text-align: right;">
+	    <input type="button" name="back" onClick="javascript:cart_continue(myform,'{LINK_CONTINUE}');" value="{MSG_CONTINUE_SHOPPING}" />
+	    <input type="submit" name="finish" value="{MSG_FINISH_SHOPPING}" />
+	    <input type="button" name="ajax_btn" style="display: none;" />
+    </td>
+</tr>
+</table>
+<input type="hidden" name="ajax_act" value="">
+<input type="hidden" name="ajax_del" value="">
+<input type="hidden" name="ajax_top" value="">
+</form>
+<!-- END BLOCK : TAG_CART_ZONE -->
+
+{VALUE_ST_SHOPPING_TERM}
+{VALUE_ST_SHIPPING_TERM}
+</div>
+
+<script src="{TAG_ROOT_PATH}js/form_box.js" type="text/javascript"></script>
+<script>
+	$(function(){
+		$("input[name=ajax_btn]").form_box({
+			NAME : "myform", // 表單名稱 (name)
+			PHP : "{TAG_ROOT_PATH}cart/", // 傳送目標
+			FUNC : "c_ajax", // func 附值
+			AFTER : function() {  }, // 動作後執行擴充
+		}, function(DATA){
+			//callback
+			location.href = '{TAG_ROOT_PATH}cart/?top='+ DATA;
+		});
+
+		$("input[name=c_del]").click(function(){
+			if(confirm("{TAG_DELETE_CHECK_STR}")){
+				var DEL_SESS = $(this).attr("rel");
+				$("input[name=ajax_del]").val(DEL_SESS);
+				$("input[name=ajax_act]").val("c_del");
+				
+				$("input[name=ajax_btn]").click();
+			}else{
+				return false;
+			}
+		});
+		
+		//----
+		$(".c_num,input[name=o_payment_type]").change(function(){
+			var NOW_TOP = parseInt(document.body.scrollTop, 10) ||parseInt(document.documentElement.scrollTop, 10);
+			
+			$("input[name=ajax_act]").val("c_mod");
+			$("input[name=ajax_top]").val(NOW_TOP);
+			$("input[name=ajax_btn]").click();
+		});
+		
+		if("{TAG_SCROLL_TOP}" != ""){
+			var $BODY = (window.opera) ? (document.compatMode == "CSS1Compat" ? $('html') : $('body')) : $('html,body');
+			$BODY.animate({ scrollTop: "{TAG_SCROLL_TOP}" }, 0);
+		}
+	});
+</script>

@@ -1,0 +1,196 @@
+<div id="tp_product">
+    <!-- START BLOCK : ORDER_LIST_ZONE -->
+    <table width="98%" border="0" align="center" cellpadding="4" cellspacing="1" class="member_zone_table">
+        <tr class="altrow">
+            <th width="5%"> No.</th>
+            <th width="15%"> {MSG_ORDER_ID}</th>
+            <th width="25%"> {MSG_CREATEDATE}</th>
+            <th width="25%"> {MSG_MODIFYDATE}</th>
+            <!-- START BLOCK : TAG_PRICE_TH -->
+            <th width="12%"> {MSG_TOTAL_MONEY}</th>
+            <!-- END BLOCK : TAG_PRICE_TH -->
+            <th width="9%"> {MSG_VIEWS}</th>
+            <th width="9%"> {MSG_STATUS}</th>
+        </tr>
+        <!-- START BLOCK : ORDER_LIST -->
+        <tr>
+            <td>{VALUE_O_SERIAL}</td>
+            <td>{VALUE_O_ID}</td>
+            <td>{VALUE_O_CREATEDATE}</td>
+            <td>{VALUE_O_MODIFYDATE}</td>
+            <!-- START BLOCK : TAG_PRICE_TD -->
+            <td>{VALUE_O_TOTAL_PRICE}</td>
+            <!-- END BLOCK : TAG_PRICE_TD -->
+            <td><a href="{TAG_ROOT_PATH}cart/?func=c_order_detial&o_id={VALUE_O_ID}&now_page={VALUE_NOW_PAGE}&jump_page={VALUE_JUMP_PAGE}">{VALUE_O_DETAIL}</a></td>
+            <td>{VALUE_O_STATUS}</td>
+        </tr>
+        <!-- END BLOCK : ORDER_LIST -->
+    </table>
+    <!-- END BLOCK : ORDER_LIST_ZONE -->
+    <!-- START BLOCK : ORDER_DETAIL_ZONE -->
+    <table width="98%" border="0" align="center" cellpadding="4" cellspacing="1" class="member_zone_table">
+        <tr>
+            <th colspan="2"> {MSG_ORDER_DETAIL}</th>
+        </tr>
+        <tr>
+            <td>{MSG_ORDER_ID}</td>
+            <td>{VALUE_O_ID}</td>
+        </tr>
+        <!-- START BLOCK : TAG_PAYMENT_BLOCK -->
+        <tr>
+            <td>{MSG_PAYMENT_TYPE}</td>
+            <td>{VALUE_O_PAYMENT_TYPE}</td>
+        </tr>
+        <!-- END BLOCK : TAG_PAYMENT_BLOCK -->
+        <tr>
+            <td>{MSG_STATUS}</td>
+            <td>{VALUE_O_STATUS_SUBJECT}</td>
+        </tr>
+        <tr>
+            <td>{MSG_COMPANY_NAME}</td>
+            <td>{VALUE_O_COMPANY_NAME}</td>
+        </tr>
+        <tr>
+            <td>{MSG_CONTACT_PERSON}</td>
+            <td>{VALUE_O_CONTACT_S}&nbsp;{VALUE_O_NAME}</td>
+        </tr>
+        <tr>
+            <td>{MSG_TEL}</td>
+            <td>{VALUE_O_TEL}</td>
+        </tr>
+        <tr>
+            <td>{MSG_FAX}</td>
+            <td>{VALUE_O_FAX}</td>
+        </tr>
+        <tr>
+            <td>{MSG_CELLPHONE}</td>
+            <td>{VALUE_O_CELLPHONE}</td>
+        </tr>
+        <tr>
+            <td>{MSG_ZIP}</td>
+            <td>
+                {VALUE_O_ZIP}</td>
+        </tr>
+        <tr>
+            <td>{MSG_ADDRESS}</td>
+            <td>{VALUE_O_ADDRESS}</td>
+        </tr>
+        <tr>
+            <td>E-mail</td>
+            <td>{VALUE_O_EMAIL}</td>
+        </tr>
+        <tr>
+            <th colspan="2"  valign="top">
+                <center> {MSG_ORDER_CONTENT}</center>
+            </th>
+        </tr>
+        <tr>
+            <td>{MSG_CONTENT}</td>
+            <td>&nbsp;{VALUE_O_CONTENT}</td>
+        </tr>
+        
+        <!-- START BLOCK : TAG_ADV_BLOCK -->
+        <tr>
+            <th colspan="2"  valign="top">
+                <center> {MSG_ADDRESSEE}</center>
+            </th>
+        </tr>
+        <tr>
+            <td>{MSG_ARRIVAL_TIME}</td>
+            <td>{VALUE_O_ARRIVAL_TIME}</td>
+        </tr>
+        <tr>
+            <td>{MSG_MEMBER_NAME}</td>
+            <td>{VALUE_O_ADD_NAME}</td>
+        </tr>
+        <tr>
+            <td>{MSG_TEL}</td>
+            <td>{VALUE_O_ADD_TEL}</td>
+        </tr>
+        <tr>
+            <td>{MSG_ADDRESSEE}</td>
+            <td>{VALUE_O_ADD_ADDRESS}</td>
+        </tr>
+        <tr>
+            <td>E-mail</td>
+            <td>{VALUE_O_ADD_MAIL}</td>
+        </tr>
+        <tr>
+            <th colspan="2"  valign="top">
+                <center> {MSG_INVOICE_INFO}</center>
+            </th>
+        </tr>
+        <tr>
+        	<td colspan="2">{VALUE_O_INVOICE_TYPE}</td>
+        </tr>
+        <!-- START BLOCK : TAG_INVOICE_TRI -->
+        <tr>
+            <td>{MSG_COMPANY_NAME}</td>
+            <td>{VALUE_O_INVOICE_NAME}</td>
+        </tr>
+        <tr>
+            <td>{MSG_VAT}</td>
+            <td>{VALUE_O_INVOICE_VAT}</td>
+        </tr>
+        <!-- END BLOCK : TAG_INVOICE_TRI -->
+        <tr>
+        	<td colspan="2">{VALUE_O_INVOICE_TEXT}</td>
+        </tr>
+		<!-- END BLOCK : TAG_ADV_BLOCK -->
+
+        <tr>
+            <td colspan="2">
+                <table width="98%" border="0" align="center" cellpadding="4" cellspacing="1" class="member_zone_table">
+                    <tr class="altrow">
+                        <th width="5%"> No.</th>
+                        <th width="40%"> {MSG_PRODUCT}</th>
+                        <th width="10%"> {MSG_AMOUNT}</th>
+                        <!-- START BLOCK : TAG_ADV_TH -->
+                        <th width="25%"> {MSG_PRODUCT_SPECIAL_PRICE}{VALUE_P_DISCOUNT}</th>
+                        <th width="20%"> {MSG_SUBTOTAL}</th>
+                        <!-- END BLOCK : TAG_ADV_TH -->
+                    </tr>
+                    <!-- START BLOCK : ORDER_ITEMS_LIST -->
+                    <tr>
+                        <td>{VALUE_P_SERIAL}</td>
+                        <td>{VALUE_P_NAME}</td>
+                        <td>{VALUE_P_AMOUNT}</td>
+                        <!-- START BLOCK : TAG_ADV_TD -->
+                        <td>{VALUE_P_SELL_PRICE}</td>
+                        <td>{VALUE_P_SUBTOTAL_PRICE}</td>
+                        <!-- END BLOCK : TAG_ADV_TD -->
+                    </tr>
+                    <!-- END BLOCK : ORDER_ITEMS_LIST -->
+                    <!-- START BLOCK : TAG_ADV_PRICE -->
+                    <tr>
+                        <td colspan="4"><div align="right"> {MSG_SHIPPING_PRICE}:&nbsp;</div></td>
+                        <td>{VALUE_O_PLUS_PRICE}</td>
+                    </tr>
+                    <tr>
+                        <th colspan="4"><div align="right"> {MSG_TOTAL}:&nbsp;</div></th>
+                        <th> {VALUE_O_TOTAL_PRICE}</th>
+                    </tr>
+                    <!-- END BLOCK : TAG_ADV_PRICE -->
+                </table>
+            </td>
+        </tr>
+    </table>
+    <!-- END BLOCK : ORDER_DETAIL_ZONE -->
+    
+    <div align="center">
+        <font size='3' color="#ff0000"> {MSG_NO_DATA}</font>
+    </div>
+    </div>
+    
+    <!-- START BLOCK : PAGE_DATA_SHOW -->
+    <div id="page">
+        <!-- START BLOCK : PAGE_BACK_SHOW -->
+        <a href="{VALUE_PAGES_BACK}"><img src="{TAG_THEME_PATH}bt-page02.gif" ></a>
+        <!-- END BLOCK : PAGE_BACK_SHOW -->
+        {VALUE_PAGES_STR}
+        <!-- START BLOCK : PAGE_NEXT_SHOW -->
+        <a href="{VALUE_NEXT_BACK}"><img src="{TAG_THEME_PATH}bt-page03.gif" ></a>
+        <!-- END BLOCK : PAGE_NEXT_SHOW -->
+    </div>
+    <!-- END BLOCK : PAGE_DATA_SHOW -->
+

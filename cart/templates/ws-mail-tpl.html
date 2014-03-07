@@ -1,0 +1,231 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+        <style type="text/css">
+<!--
+.body1 {
+	line-height: 20px;
+	font-size: 13px;
+	color: #333333;
+	font-family: "Verdana", "Arial", "Helvetica", "sans-serif";
+}
+a:hover {
+	color: #FF6600;
+}
+a:link {
+	color: #0066CC;
+}
+a:visited {
+	color: #0066CC;
+}
+
+-->
+</style>
+    </head>
+<body>
+<div id="tp_product">
+    {VALUE_TERM}
+    <!-- START BLOCK : TAG_CART_ZONE -->
+    <div id="tp_product">
+        <table width="90%" border="0" align="center" cellPadding="5" cellSpacing="1" bgColor="#888888">
+            <tr bgcolor="#D5D5D5">
+                <th width="5%"> No.</th>
+                <th width="10%"> {MSG_PRODUCT_IMAGE}</th>
+                <th width="30%"> {MSG_PRODUCT}</th>
+                <th width="10%"> {MSG_AMOUNT}</th>
+                <!-- START BLOCK : TAG_PRICE_TH -->
+                <th width="25%"> {MSG_PRODUCT_SPECIAL_PRICE}{VALUE_P_DISCOUNT}</th>
+                <th width="20%"> {MSG_SUBTOTAL}</th>
+                <!-- END BLOCK : TAG_PRICE_TH -->
+            </tr>
+            <!-- START BLOCK : TAG_CART_LIST -->
+            <tr bgcolor="#FFFFFF">
+                <td>{VALUE_P_SERIAL}</td>
+                <td><center><a href="{VALUE_P_LINK}"><img src="{VALUE_P_SMALL_IMG}" width="60"  border="0"/></a></center></td>
+                <td>{VALUE_P_NAME}</td>
+                <td>{VALUE_P_AMOUNT}</td>
+                <!-- START BLOCK : TAG_PRICE_TD -->
+                <td>{VALUE_P_SPECIAL_PRICE}</td>
+                <td>{VALUE_P_SUBTOTAL_PRICE}</td>
+                <!-- END BLOCK : TAG_PRICE_TD -->
+            </tr>
+            <!-- END BLOCK : TAG_CART_LIST -->
+            <!-- START BLOCK : TAG_PRICE_TOTAL -->
+            <tr bgcolor="#FFFFFF">
+                <td colspan="4">
+                    <div align="right"> {MSG_SHIPPING_PRICE}:&nbsp;
+                    </div>
+                </td>
+                <td colspan="2"> {VALUE_SHIPPING_PRICE}
+                </td>
+            </tr>
+            <tr bgcolor="#FFFFFF">
+                <th colspan="4">
+                    <div align="right"> {MSG_TOTAL}:&nbsp;
+                    </div>
+                </th>
+                <th colspan="2" align="left"> {VALUE_TOTAL}
+                </th>
+            </tr>
+            <!-- END BLOCK : TAG_PRICE_TOTAL -->
+        </table>
+    <!-- END BLOCK : TAG_CART_ZONE -->
+    <!-- START BLOCK : MEMBER_DATA_FORM -->
+        <table width="90%" border="0" align="center" cellPadding="5" cellSpacing="1" bgColor="#888888">
+            <tr>
+                <td bgcolor="#D5D5D5">
+                    {MSG_ID}</td>
+                <td bgcolor="#FFFFFF">
+                    {VALUE_O_ID}</td>
+            </tr>
+            <!-- START BLOCK : PAYMENT_TYPE -->
+            <tr>
+                <td bgcolor="#D5D5D5">
+                    {MSG_PAYMENT_TYPE}</td>
+                <td bgcolor="#FFFFFF">
+                    {VALUE_PAYMENT_TYPE}</td>
+            </tr>
+            <!-- END BLOCK : PAYMENT_TYPE -->
+            <tr>
+            	<td colspan="2">{MSG_MEMBER_INFO}</td>
+            </tr>
+            <tr>
+                <td bgColor="#D5D5D5">
+                    {MSG_COMPANY_NAME}</td>
+                <td bgColor="#ffffff">
+                    {VALUE_M_COMPANY_NAME}</td>
+            </tr>
+            <tr>
+                <td bgColor="#D5D5D5">
+                    {MSG_CONTACT_PERSON}</td>
+                <td bgColor="#ffffff">
+                    {VALUE_M_NAME}</td>
+            </tr>
+            <!-- START BLOCK : MEMBER_DATA_COUNTRY_ZONE -->
+            <tr bgColor="#ffffff" class="body1">
+                <td bgcolor="#D5D5D5">
+                    {MSG_COUNTRY}</td>
+                <td bgcolor="#ffffff">
+                    {VALUE_M_COUNTRY}</td>
+            </tr>
+            <!-- END BLOCK : MEMBER_DATA_COUNTRY_ZONE -->
+            <tr>
+                <td bgcolor="#D5D5D5">
+                    {MSG_ZIP}</td>
+                <td bgcolor="#FFFFFF">
+                    {VALUE_M_ZIP}</td>
+            </tr>
+            <tr>
+                <td bgcolor="#D5D5D5">
+                    {MSG_ADDRESS}</td>
+                <td bgcolor="#FFFFFF">
+                    {VALUE_M_ADDRESS}</td>
+            </tr>
+            <tr>
+                <td bgcolor="#D5D5D5">
+                    {MSG_TEL}</td>
+                <td bgcolor="#FFFFFF">
+                    {VALUE_M_TEL}
+                    </td>
+            </tr>
+            <tr>
+                <td bgcolor="#D5D5D5">
+                    {MSG_FAX}</td>
+                <td bgcolor="#FFFFFF">
+                    {VALUE_M_FAX}
+                    </td>
+            </tr>
+            <tr>
+                <td bgcolor="#D5D5D5">
+                    {MSG_CELLPHONE}</td>
+                <td bgcolor="#FFFFFF">
+                    {VALUE_M_CELLPHONE}
+                    </td>
+            </tr>
+            <tr>
+                <td bgcolor="#D5D5D5">
+                    e-mail</td>
+                <td bgcolor="#FFFFFF">
+                    {VALUE_M_EMAIL}
+                    </td>
+            </tr>
+            <tr>
+              <td bgcolor="#D5D5D5">
+                    {MSG_CONTENT}</td>
+              <td bgcolor="#FFFFFF">
+                 {VALUE_CONTENT}
+              </td>
+            </tr>
+            
+            <!-- START BLOCK : TAG_ADDRESSEE_BLOCK -->
+            <tr>
+            	<td colspan="2">{MSG_ADDRESSEE}</td>
+            </tr>
+            <tr>
+                <td bgColor="#D5D5D5">
+                    {MSG_ARRIVAL_TIME}</td>
+                <td bgColor="#ffffff">
+                    {VALUE_ARRIVAL_TIME}</td>
+            </tr>
+            <tr>
+              <td bgcolor="#D5D5D5">
+                    {MSG_MEMBER_NAME}</td>
+              <td bgcolor="#FFFFFF">
+                 {VALUE_ADD_NAME}
+              </td>
+            </tr>
+            <tr>
+              <td bgcolor="#D5D5D5">
+                    {MSG_TEL}</td>
+              <td bgcolor="#FFFFFF">
+                 {VALUE_ADD_TEL}
+              </td>
+            </tr>
+            <tr>
+              <td bgcolor="#D5D5D5">
+                    {MSG_ADDRESS}</td>
+              <td bgcolor="#FFFFFF">
+                 {VALUE_ADD_ADDRESS}
+              </td>
+            </tr>
+            <tr>
+              <td bgcolor="#D5D5D5">
+                    e-mail</td>
+              <td bgcolor="#FFFFFF">
+                 {VALUE_ADD_MAIL}
+              </td>
+            </tr>
+            <tr>
+            	<td colspan="2">{MSG_INVOICE_INFO}</td>
+            </tr>
+            <tr>
+              <td colspan="2" gcolor="#D5D5D5">
+                 {VALUE_INVOICE_TYPE}
+              </td>
+            </tr>
+            <tr>
+              <td bgcolor="#D5D5D5">
+                    {MSG_COMPANY_NAME}</td>
+              <td bgcolor="#FFFFFF">
+                 {VALUE_INVOICE_NAME}
+              </td>
+            </tr>
+            <tr>
+              <td bgcolor="#D5D5D5">
+                    {MSG_VAT}</td>
+              <td bgcolor="#FFFFFF">
+                 {VALUE_INVOICE_VAT}
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2" gcolor="#D5D5D5">
+                 {VALUE_INVOICE_TEXT}
+              </td>
+            </tr>
+            <!-- END BLOCK : TAG_ADDRESSEE_BLOCK -->
+        </table>
+        </div>
+    <!-- END BLOCK : MEMBER_DATA_FORM -->
+</div>
+</body>
+</html>

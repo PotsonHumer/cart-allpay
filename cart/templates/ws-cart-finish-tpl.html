@@ -1,0 +1,425 @@
+
+    <!-- START BLOCK : MEMBER_LOGIN_FORM -->
+            <table width="60%" border="0" align="center" cellpadding="4" cellspacing="1" >
+                <tr>
+                    <td>
+                      {MSG_LOGIN_NOTICE1}</td>
+                    <td>
+                 </tr>
+            </table>
+            <form name="myform" method="post" action="{TAG_ROOT_PATH}login.php?func=check_data" id="formID" class="formular">
+              <table width="90%" border="0" align="center" cellpadding="4" cellspacing="1" class="inquiry_table">
+                    <tr class="altrow1">
+                        <td colspan="2">{MSG_MEMBER_LOGIN}</td>
+                    </tr>
+                    <tr class="altrow2">
+                        <td>{MSG_LOGIN_ACCOUNT}</td>
+                        <td>
+                            <input name="mm_account" class="validate[required]" type="text" class="search_product" id="mm_account" size="20" /></td>
+                    </tr>
+                    <tr class="altrow2">
+                        <td>{MSG_LOGIN_PASSWORD}</td>
+                        <td><input name="mm_password" class="validate[required]" type="password" class="search_product" id="mm_password" size="20" /></td>
+                    </tr>
+                    <tr class="altrow2">
+                        <td>{MSG_LOGIN_SECURITY}</td>
+                        <td>{TAG_INPUT_SECURITY}&nbsp;{TAG_IMAGE_SECURITY_IMAGE}&nbsp;&nbsp;<font color="#ff0000">{MSG_ERROR_MESSAGE}</font></td>
+                    </tr>
+                    <tr class="altrow2">
+                        <td colspan="2">
+                        	<input type="submit" name="login" value="{MSG_LOGIN_BTN}">
+                        	<input type="button" name="first" value="{MSG_FIRST_BTN}">
+						</td>
+                    </tr>
+                </table>
+            <input type="hidden" name="callback" value="1">
+            <input type="hidden" name="rp" value="1">
+            </form>
+            
+			<script>
+				$(function(){
+					$("input[name=first]").click(function(){
+						location.href = '?func=c_finish&first=1';
+					});
+				});
+			</script>
+    <!-- END BLOCK : MEMBER_LOGIN_FORM -->
+    
+    
+    <!-- START BLOCK : TAG_CART_ZONE -->
+        <table width="90%" border="0" align="center" cellpadding="0" cellspacing="0" class="inquiry_table">
+            <tr>
+                <th width="5%"> No.</th>
+                <th width="10%"> {MSG_PRODUCT_IMAGE}</th>
+                <th width="40%"> {MSG_PRODUCT}</th>
+                <th width="10%"> {MSG_AMOUNT}</th>
+                <!-- START BLOCK : TAG_PRICE_TH -->
+                <th width="25%"> {MSG_PRODUCT_SPECIAL_PRICE}{VALUE_P_DISCOUNT}</th>
+                <th width="20%"> {MSG_SUBTOTAL}</th>
+                <!-- END BLOCK : TAG_PRICE_TH -->
+            </tr>
+            <!-- START BLOCK : TAG_CART_LIST -->
+            <tr {TAG_TR_CLASS}>
+                <td>{VALUE_P_SERIAL}</td>
+                <td><a href="{VALUE_P_LINK}" target="_blank"><img src="{VALUE_P_SMALL_IMG}" width="40" alt="{VALUE_P_NAME}" border="0"/></a></td>
+                <td><a href="{VALUE_P_LINK}" target="_blank">{VALUE_P_NAME}</a></td>
+                <td>{VALUE_P_AMOUNT}</td>
+                <!-- START BLOCK : TAG_PRICE_TD -->
+                <td>{VALUE_P_SPECIAL_PRICE}</td>
+                <td>{VALUE_P_SUBTOTAL_PRICE}</td>
+                <!-- END BLOCK : TAG_PRICE_TD -->
+            </tr>
+            <!-- END BLOCK : TAG_CART_LIST -->
+            <!-- START BLOCK : TAG_PLUS_FEE -->
+			<tr>
+			    <td colspan="4">
+			        <div align="right"> {MSG_PLUS_FEE}:&nbsp;</div>
+			    </td>
+			    <td colspan="3"> {VALUE_PLUS_FEE}</td>
+			</tr>
+			<!-- END BLOCK : TAG_PLUS_FEE -->
+            <!-- START BLOCK : TAG_PRICE_TOTAL -->
+            <tr>
+                <td colspan="4">
+                    <div align="right"> {MSG_SHIPPING_PRICE}:&nbsp;</div>
+                </td>
+                <td colspan="2"> {VALUE_SHIPPING_PRICE}</td></tr>
+            <tr>
+                <th colspan="4">
+                    <div align="right"> {MSG_TOTAL}:&nbsp;</div>
+                </th>
+                <th colspan="2"> {VALUE_TOTAL}</th>
+            </tr>
+            <!-- END BLOCK : TAG_PRICE_TOTAL -->
+        </table>
+    <!-- END BLOCK : TAG_CART_ZONE -->
+    
+    <!-- START BLOCK : MEMBER_DATA_FORM -->
+	<form name="myform" method="post" action="?func=c_replace" id="formID" class="formular">
+        <table width="90%" border="0" align="center" cellpadding="0" cellspacing="0" class="member_table altrow_table">
+            <!-- START BLOCK : PAYMENT_TYPE -->
+            <tr>
+                <th>{MSG_PAYMENT_TYPE}</th>
+                <td>{VALUE_PAYMENT_TYPE}</td>
+            </tr>
+            <!-- END BLOCK : PAYMENT_TYPE -->
+            <tr>
+            	<th colspan="2">{MSG_MEMBER_INFO}</th>
+            </tr>
+            
+            <!-- START BLOCK : TAG_NEW_MEMBER_REGIST -->
+            <tr>
+            	<th><span class="red">*</span>{MSG_ACCOUNT}(e-mail)</th>
+            	<td><input type="text" id="m_account" class="validate[required,custom[email],ajax[ajaxNEWUser]]" name="m_account" value="{VALUE_M_ACCOUNT}" ></td>
+            </tr>
+            <tr>
+            	<th><span class="red">*</span>{MSG_PASSWORD}</th>
+            	<td><input type="password" id="m_password" class="validate[required]" name="m_password" value="{VALUE_M_PASSWORD}" ></td>
+            </tr>
+            <tr>
+            	<th><span class="red">*</span>{MSG_VALID_PASSWORD}</th>
+            	<td><input type="password" id="v_password" class="validate[required,confirm[m_password]]" name="v_password" value="{VALUE_M_PASSWORD}" ></td>
+            </tr>
+            <!-- END BLOCK : TAG_NEW_MEMBER_REGIST -->
+            
+            <tr>
+              <th>{MSG_COMPANY_NAME}</th>
+              <td><input name="m_company_name" value="{VALUE_M_COMPANY_NAME}" type="text" /></td>
+            </tr>
+            <tr>
+              <th><span class="red">*</span>{MSG_CONTACT_PERSON}</th>
+              <td>
+              	 <!-- START BLOCK : TAG_S_BLOCK_0 -->
+				 <select name="m_contact_s">
+				 	<!-- START BLOCK : TAG_S_OPTION_0 -->
+					<option value="{VALUE_S_KEY}" {VALUE_S_CURRENT}>{VALUE_S_STR}</option>
+					<!-- END BLOCK : TAG_S_OPTION_0 -->
+				 </select>
+				&nbsp;{MSG_MEMBER_NAME}:
+				<!-- END BLOCK : TAG_S_BLOCK_0 -->
+				<input name="m_name" id="m_name" class="validate[required]" type="text" value="{VALUE_M_NAME}" size="12" />
+              	 <!-- START BLOCK : TAG_S_BLOCK_1 -->
+				 <select name="m_contact_s">
+				 	<!-- START BLOCK : TAG_S_OPTION_1 -->
+					<option value="{VALUE_S_KEY}" {VALUE_S_CURRENT}>{VALUE_S_STR}</option>
+					<!-- END BLOCK : TAG_S_OPTION_1 -->
+				 </select>
+				<!-- END BLOCK : TAG_S_BLOCK_1 -->
+              </td>
+            </tr>
+            <!-- START BLOCK : SELECT_COUNTRY -->
+            <tr>
+                <th><span class="red">*</span>{MSG_COUNTRY}</th>
+                <td><select type="select-one" name="m_country" id="m_country" class="validate[required]">
+                    {TAG_SELECT_OPTION_COUNTRY}
+                    </select></td>
+            </tr>
+            <!-- END BLOCK : SELECT_COUNTRY -->
+            <tr>
+                <th>{MSG_ADDRESS}</th>
+                <td>
+                	<!-- START BLOCK : TAG_TAIWAN_ZONE -->
+                	<select id="zone_main" name="m_zone"></select>
+                	<select id="zone_sub" name="m_city"></select>
+                	<!-- END BLOCK : TAG_TAIWAN_ZONE -->
+                	<input name="m_address" type="text" value="{VALUE_M_ADDRESS}" >
+                </td>
+            </tr>
+            <tr>
+                <th>{MSG_ZIP}</th>
+                <td>
+                    <input id="zone_id" name="m_zip" type="text" value="{VALUE_M_ZIP}" size="10" ></td>
+            </tr>
+            <tr>
+                <th><span class="red">*</span>{MSG_TEL}</th>
+                <td>
+                    <input name="m_tel" type="text" id="m_tel" class="validate[required]" value="{VALUE_M_TEL}" >
+                    </td>
+            </tr>
+            <tr>
+                <th>{MSG_FAX}</th>
+                <td>
+                    <input name="m_fax" type="text" value="{VALUE_M_FAX}" >
+                    </td>
+            </tr>
+            <tr>
+                <th>{MSG_CELLPHONE}</th>
+                <td>
+                    <input name="m_cellphone" type="text" value="{VALUE_M_CELLPHONE}" >
+                    </td>
+            </tr>
+            <tr>
+                <th>
+                    <span class="red">*</span>e-mail</th>
+                <td>
+                    <input name="m_email" type="text" id="m_email" class="validate[required,custom[email]]" value="{VALUE_M_EMAIL}" >
+                    </td>
+            </tr>
+            <tr>
+              <th>{MSG_CONTENT}</th>
+              <td>
+                 <textarea name="content" cols="50" rows="12" ></textarea>
+              </td>
+            </tr>
+            
+            <!-- START BLOCK : TAG_ADDRESSEE_BLOCK -->
+            <tr>
+            	<th colspan="2">{MSG_ADDRESSEE}</th>
+            </tr>
+            <tr>
+            	<td colspan="2">
+            		<input type="checkbox" name="fsb_same" value="1">
+            		{MSG_SAM}
+            	</td>
+            </tr>
+            <tr>
+            	<th>{MSG_ARRIVAL_TIME}</th>
+            	<td>
+					{MSG_YEAR_WORD} : <select class="date_picker" name="o_arrival_time[]" rel="y"></select>&nbsp;&nbsp;
+					{MSG_MONTH_WORD} : <select class="date_picker" name="o_arrival_time[]" rel="m"></select>&nbsp;&nbsp;
+					{MSG_DAY_WORD} : <select class="date_picker" name="o_arrival_time[]" rel="d"></select>&nbsp;&nbsp;
+					
+					<span id="date_week"></span>
+            	</td>
+            </tr>
+            <tr>
+            	<th>{MSG_MEMBER_NAME}</th>
+            	<td>
+            		<input type="text" name="o_add_name" value="">
+            	</td>
+            </tr>
+            <tr>
+            	<th>{MSG_TEL}</th>
+            	<td>
+            		<input type="text" name="o_add_tel" value="">
+            	</td>
+            </tr>
+            <tr>
+            	<th>{MSG_ADDRESS}</th>
+            	<td>
+            		<input type="text" name="o_add_address" value="">
+            	</td>
+            </tr>
+            <tr>
+            	<th>e-mail</th>
+            	<td>
+            		<input type="text" name="o_add_mail" value="">
+            	</td>
+            </tr>
+            <tr>
+            	<th colspan="2">{MSG_INVOICE_INFO}</th>
+            </tr>
+            <tr>
+            	<td colspan="2">
+            		<input type="radio" name="o_invoice_type" value="1" checked>
+            		{MSG_DUP_INVOICE}
+            		<input type="radio" name="o_invoice_type" value="2">
+            		{MSG_TRI_INVOICE}
+            		<input type="radio" name="o_invoice_type" value="3">
+            		{MSG_DONATE}
+            	</td>
+            </tr>
+            <tr class="tri_block" style="display: none;">
+            	<th>{MSG_COMPANY_NAME}</th>
+            	<td>
+            		<input type="text" name="o_invoice_name" value="">
+            	</td>
+            </tr>
+            <tr class="tri_block" style="display: none;">
+            	<th>{MSG_VAT}</th>
+            	<td>
+            		<input type="text" name="o_invoice_vat" value="">
+            	</td>
+            </tr>
+            <tr>
+            	<td colspan="2">
+            		<textarea rows="5" cols="40" name="o_invoice_text"></textarea>
+            	</td>
+            </tr>
+            <!-- END BLOCK : TAG_ADDRESSEE_BLOCK -->
+            
+            <tr>
+              <td colspan="2">
+                 <input type="submit" value="{MSG_MODE}">
+              </td>
+            </tr>
+        </table>
+	</form>
+    <!-- END BLOCK : MEMBER_DATA_FORM -->
+    
+    
+    <script src="{TAG_ROOT_PATH}js/date_box.js" type="text/javascript"></script>
+    <script src="{TAG_ROOT_PATH}js/zone_box.js" type="text/javascript"></script>
+    <script src="{TAG_ROOT_PATH}js/get_box.js" type="text/javascript"></script>
+	<script>
+		function week_get(){
+			var DATE_GET = new Array();
+			$(".date_picker").each(function(KEY){
+				DATE_GET[KEY] = $(this).val();
+			});
+			
+			var DATE_STR = DATE_GET[0] +'-'+ DATE_GET[1] +'-'+ DATE_GET[2];
+			var THY_DAY = new Date(DATE_STR);
+			var THY_WEEK = THY_DAY.getDay();
+			
+			switch(THY_WEEK){
+				default:
+					var WEEK_STR = '日';
+				break;
+				case 1:
+					var WEEK_STR = '一';
+				break;
+				case 2:
+					var WEEK_STR = '二';
+				break;
+				case 3:
+					var WEEK_STR = '三';
+				break;
+				case 4:
+					var WEEK_STR = '四';
+				break;
+				case 5:
+					var WEEK_STR = '五';
+				break;
+				case 6:
+					var WEEK_STR = '六';
+				break;
+			}
+			
+			$("#date_week").html('星期'+ WEEK_STR);
+		}
+		
+		$(function(){
+			$(".altrow_table tr").each(function(KEY){
+				if(KEY % 2 == 0){
+					$(this).addClass("altrow");
+				}
+			});
+			
+			$(".red").css({ "color":"red" });
+			
+			//----
+			$("input[name=fsb_same]").change(function(){
+				var FSB_VAL = $(this).attr("checked");
+				
+				if(FSB_VAL == "checked"){
+					var FSB_NAME = $("input[name=m_name]").val();
+					var FSB_TEL = $("input[name=m_tel]").val();
+					var FSB_ZONE = $("#zone_main option:selected").val();
+					var FSB_CITY = $("#zone_sub option:selected").val();
+					
+					if(typeof(FSB_ZONE) != "undefined" && typeof(FSB_CITY) != "undefined"){
+						if(FSB_CITY != "無分區"){
+							var FSB_ADDRESS = FSB_ZONE + FSB_CITY + $("input[name=m_address]").val();
+						}else{
+							var FSB_ADDRESS = FSB_ZONE + $("input[name=m_address]").val();
+						}
+					}else{
+						var FSB_ADDRESS = $("input[name=m_address]").val();
+					}
+					
+					var FSB_MAIL = $("input[name=m_email]").val();
+					
+					$("input[name=o_add_name]").val(FSB_NAME);
+					$("input[name=o_add_tel]").val(FSB_TEL);
+					$("input[name=o_add_address]").val(FSB_ADDRESS);
+					$("input[name=o_add_mail]").val(FSB_MAIL);
+				}else{
+					$("input[name=o_add_name]").val("");
+					$("input[name=o_add_tel]").val("");
+					$("input[name=o_add_address]").val("");
+					$("input[name=o_add_mail]").val("");
+				}
+			});
+			
+			//----
+			$("input[name=o_invoice_type]").change(function(){
+				var TYPE_VAL = $(this).val();
+				
+				if(TYPE_VAL == 2){
+					$(".tri_block").show();
+				}else{
+					$(".tri_block").hide();
+				}
+			});
+			
+			//----
+			$(".date_picker").date_box({
+				SWITCH : 0, // 功能選擇 , 0 => 綜合功能 , 1 => 年 , 2 => 月 , 3 => 日
+				SET : "{VALUE_ARRIVAL_START}", // 預設日期, 格式範例 : 1900-01-01,
+				RANGE : "{VALUE_ARRIVAL_RANGE}", // 限制範圍,指定時間往後計算天數
+			});
+			
+			week_get();
+			$(".date_picker").change(function(){
+				week_get();
+			});
+			
+			//----
+			$(document).zone_box({
+				MAIN_ID : "zone_main", // 縣市元素 ID (select 元素)
+				SUB_ID : "zone_sub", // 區域元素 ID (select 元素)
+				ZIP_ID : "zone_id", // 郵遞區號 ID (input 元素)
+				ZIP_GET : "{VALUE_TAIWAN_ZIP}", // 輸入郵遞區號
+			},function(ZIP){
+				//callback
+			});
+			
+			//----
+			$(document).get_box({
+				CLICK : false, // 按鍵後才啟動功能 , true => 按鍵啟動  , false => 直接啟動
+				CALL : "", // key 值
+				PHP : "{TAG_ROOT_PATH}cart/", // 取值目標
+				FUNC : "c_check", // func 附值
+				AFTER : function() {  }, // 動作後執行擴充
+			}, function(DATA){
+				//callback
+				if(!DATA){
+					location.href = '{TAG_ROOT_PATH}';
+				}
+			});
+			
+			//----
+			{MSG_PAYMENT_ALERT}
+		});
+	</script>
