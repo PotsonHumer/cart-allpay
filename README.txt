@@ -1,4 +1,4 @@
-cart-allpay
+﻿cart-allpay
 ===========
 
 購物車 + 歐付寶套件 Class
@@ -16,6 +16,6 @@ cart-allpay
 	ws-products-detail1-tpl.html => 更改 myform 傳送目標至 {TAG_ROOT_PATH}cart/
 
 	3.
-	ws-fn-left-member-tpl.html => 更改 member.php?func=m_zone&mzt=order 連結為 {TAG_ROOT_PATH}cart/?func=c_order
-	並將各連結帶入根目錄標籤 {TAG_ROOT_PATH}~~
+	ws-fn-left-member-tpl.html => 更改 member.php?func=m_zone&mzt=order 連結 : 
+	{TAG_ROOT_PATH}cart/?func=c_order , 並將各連結帶入根目錄標籤 {TAG_ROOT_PATH}~~
 
